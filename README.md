@@ -1,13 +1,11 @@
-Yes. Put this in your `README.md` in the main `Tazabeet-full` folder.
 
-```md
-# TAZABEET
+TAZABEET
 
 TAZABEET is a home services platform built for customers, workers, and administrators. The system helps customers book trusted home services such as plumbing, electrical work, cleaning, painting, carpentry, AC repair, pest control, and more. It also gives workers a dashboard to manage jobs, update progress, receive messages, and track wallet earnings.
 
 This project was developed as a graduation project. The first phase focused on system analysis, including identifying users, requirements, system features, and the service booking flow. The implementation phase converted that analysis into a working full-stack web platform.
 
-## Project Structure
+Project Structure
 
 ```text
 Tazabeet-full/
