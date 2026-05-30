@@ -216,6 +216,11 @@ export const dashboardTranslations = {
             iosText: "On iPhone: tap Share, then Add to Home Screen.",
             install: "Install",
         },
+        support: {
+            title: "24/7 Live Chat",
+            subtitle: "WhatsApp support",
+            whatsappLabel: "Open 24/7 WhatsApp live chat",
+        },
         footer: {
             tagline: "Your trusted partner for home services in Alexandria.",
             quickLinks: "Quick Links",
@@ -693,6 +698,11 @@ export const dashboardTranslations = {
             androidText: "أضف تازابيت للشاشة الرئيسية للوصول بسرعة.",
             iosText: "على iPhone: اضغط مشاركة ثم Add to Home Screen.",
             install: "تثبيت",
+        },
+        support: {
+            title: "دردشة مباشرة 24/7",
+            subtitle: "دعم واتساب",
+            whatsappLabel: "فتح دردشة واتساب المباشرة على مدار الساعة",
         },
         footer: {
             tagline: "شريكك الموثوق للخدمات المنزلية في الإسكندرية.",

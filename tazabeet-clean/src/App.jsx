@@ -22,6 +22,7 @@ import WorkerProfile from "./pages/WorkerProfile";
 import { bindSessionActivity } from "./utils/sessionSecurity";
 import SeoManager from "./components/SeoManager";
 import InstallPwaPrompt from "./components/InstallPwaPrompt";
+import WhatsAppSupport from "./components/WhatsAppSupport";
 
 
 export default function App() {
@@ -87,6 +88,7 @@ export default function App() {
         <Route path="*" element={<LandingPage />} />
 
       </Routes>
+      <WhatsAppSupport />
       <InstallPwaPrompt />
       <ToastContainer position="top-right" autoClose={2500} hideProgressBar={false} newestOnTop />
     </>
