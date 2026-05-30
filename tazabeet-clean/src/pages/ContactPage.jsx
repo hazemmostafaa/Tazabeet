@@ -5,6 +5,7 @@ import "./LandingPage.css";
 import logo from "../assets/logo.png";
 import SiteFooter from "../components/SiteFooter";
 import { useDashboardLanguage } from "../utils/dashboardI18n";
+import { api } from "../api";
 
 export default function ContactPage() {
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ export default function ContactPage() {
         email: "",
         message: "",
     });
+    const [sending, setSending] = useState(false);
 
     useEffect(() => {
         let lastScroll = window.scrollY;
@@ -30,7 +32,7 @@ export default function ContactPage() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    function submitContact(e) {
+    async function submitContact(e) {
         e.preventDefault();
 
         if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
@@ -38,8 +40,16 @@ export default function ContactPage() {
             return;
         }
 
-        toast.success(t("contactPage.received"));
-        setForm({ name: "", email: "", message: "" });
+        try {
+            setSending(true);
+            await api.post("/api/contact", form);
+            toast.success(t("contactPage.received"));
+            setForm({ name: "", email: "", message: "" });
+        } catch (err) {
+            toast.error(err.response?.data?.message || t("contactPage.failed"));
+        } finally {
+            setSending(false);
+        }
     }
 
     return (
@@ -94,11 +104,11 @@ export default function ContactPage() {
                         <div className="contactInfo">
                             <div>
                                 <b>{t("contactPage.phone")}</b>
-                                <span>+20 100 123 4567</span>
+                                <span>+20 100 0570031</span>
                             </div>
                             <div>
                                 <b>{t("contactPage.email")}</b>
-                                <span>help@tazabeet.com</span>
+                                <span>tazabeet2026@gmail.com</span>
                             </div>
                             <div>
                                 <b>{t("contactPage.location")}</b>
@@ -131,7 +141,9 @@ export default function ContactPage() {
                             rows={6}
                         />
 
-                        <button type="submit">{t("contactPage.send")}</button>
+                        <button type="submit" disabled={sending}>
+                            {sending ? t("contactPage.sending") : t("contactPage.send")}
+                        </button>
                     </form>
                 </div>
             </div>

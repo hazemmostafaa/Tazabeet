@@ -29,6 +29,7 @@ app.use("/api/messages", require("./routes/messageRoutes"));
 app.use("/api/ai", require("./routes/aiRoutes"));
 app.use("/api/notifications", require("./routes/notificationRoutes"));
 app.use("/api/complaints", require("./routes/complaintRoutes"));
+app.use("/api/contact", require("./routes/contactRoutes"));
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));

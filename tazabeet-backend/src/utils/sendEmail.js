@@ -54,7 +54,7 @@ function postJson({ hostname, path, headers, body }) {
     });
 }
 
-async function sendBrevoEmail({ to, subject, text, html }) {
+async function sendBrevoEmail({ to, subject, text, html, replyTo }) {
     const apiKey = process.env.BREVO_API_KEY;
 
     if (!apiKey) {
@@ -81,6 +81,10 @@ async function sendBrevoEmail({ to, subject, text, html }) {
         body.htmlContent = html;
     } else {
         body.textContent = text || "";
+    }
+
+    if (replyTo) {
+        body.replyTo = { email: replyTo };
     }
 
     return postJson({
@@ -117,8 +121,8 @@ function getTransporter() {
     });
 }
 
-async function sendEmail({ to, subject, text, html }) {
-    const brevoResult = await sendBrevoEmail({ to, subject, text, html });
+async function sendEmail({ to, subject, text, html, replyTo }) {
+    const brevoResult = await sendBrevoEmail({ to, subject, text, html, replyTo });
     if (brevoResult) return brevoResult;
 
     const transporter = getTransporter();
@@ -131,6 +135,7 @@ async function sendEmail({ to, subject, text, html }) {
             subject,
             text,
             html,
+            replyTo,
         });
     } catch (err) {
         throw new Error(`Email send failed: ${err.message}`);

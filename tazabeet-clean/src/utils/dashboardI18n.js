@@ -188,8 +188,10 @@ export const dashboardTranslations = {
             message: "Message",
             messagePlaceholder: "How can we help?",
             send: "Send Message",
+            sending: "Sending...",
             fillAll: "Please fill in all contact fields.",
             received: "Thanks. We received your message.",
+            failed: "Could not send your message. Please try again.",
         },
         aiPage: {
             title: "AI Diagnostics",
@@ -671,8 +673,10 @@ export const dashboardTranslations = {
             message: "الرسالة",
             messagePlaceholder: "كيف يمكننا مساعدتك؟",
             send: "إرسال الرسالة",
+            sending: "جار الإرسال...",
             fillAll: "من فضلك املأ كل بيانات التواصل.",
             received: "شكرا لك. استلمنا رسالتك.",
+            failed: "تعذر إرسال رسالتك. حاول مرة أخرى.",
         },
         aiPage: {
             title: "تشخيص بالذكاء الاصطناعي",
