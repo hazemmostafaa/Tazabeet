@@ -1,0 +1,11 @@
+{
+  "name": "tazabeet",
+  "private": true,
+  "workspaces": [
+    "tazabeet-backend"
+  ],
+  "scripts": {
+    "start": "npm --prefix tazabeet-backend start",
+    "build": "npm --prefix tazabeet-backend install"
+  }
+}
